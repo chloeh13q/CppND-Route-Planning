@@ -52,19 +52,32 @@ int main(int argc, const char **argv)
             osm_data = std::move(*data);
     }
     
-    // TODO 1: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
-    // user input for these values using std::cin. Pass the user input to the
-    // RoutePlanner object below in place of 10, 10, 90, 90.
+    // Ask user to input starting and ending coordinates and store input values
+    // in separate variables.
     float start_x;
     float start_y;
     float end_x;
     float end_y;
-    std::cout << "Please input starting coordinates (in the format of x y): ";
+    std::cout << "Please input starting coordinates (in the format of x y where x and y are both numbers between 1 and 100): ";
     std::cin >> start_x;
     std::cin >> start_y;
-    std::cout << "Please input destination coordinates (in the format of x y): ";
+    while (!(std::cin) || start_x < 0 || start_x > 100 || start_y < 0 || start_y > 100) {
+        std::cout << "Invalid entry. Please reenter coordiates: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> start_x;
+        std::cin >> start_y;
+    }
+    std::cout << "Please input destination coordinates (in the format of x y where x and y are both numbers between 1 and 100): ";
     std::cin >> end_x;
     std::cin >> end_y;
+    while (!(std::cin) || end_x < 0 || end_x > 100 || end_y < 0 || end_y > 100) {
+        std::cout << "Invalid entry. Please reenter coordiates: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> start_x;
+        std::cin >> start_y;
+    }
 
     // Build Model.
     RouteModel model{osm_data};
