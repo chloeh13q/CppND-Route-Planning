@@ -28,11 +28,11 @@ git clone git@github.com:udacity/CppND-Route-Planning-Project.git --recurse-subm
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * IO2D
   * IO2D is now available via Microsoft vcpkg (https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=vs-2019). vcpkg can be installed by git cloning the project directly from https://github.com/microsoft/vcpkg.
-  ```
-  git clone https://github.com/microsoft/vcpkg
-  cd vcpkg
-  ./vcpkg install io2d
-  ```
+    ```
+    git clone https://github.com/microsoft/vcpkg
+    cd vcpkg
+    ./vcpkg install io2d
+    ```
   * Installation instructions for all operating systems can be found [here](https://github.com/cpp-io2d/P0267_RefImpl/blob/master/BUILDING.md)
   * This library must be built in a place where CMake `find_package` will be able to find it
 
